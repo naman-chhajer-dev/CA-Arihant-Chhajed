@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arihant Chhajed, FCA — Chartered Accountant</title>
+<link rel="icon" type="image/png" href="1eb5f5883a760d9c9fe0132343447f06-removebg-preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2A41;
+    --emerald:#1F4D3C;
+    --emerald-light:#2E6B54;
+    --emerald-pale:#E7EEE9;
+    --paper:#F7F4EC;
+    --paper-deep:#EFEADB;
+    --line:#DCD5C0;
+    --gold:#A9822F;
+    --gold-light:#C9A75C;
+    --charcoal:#26261F;
+    --charcoal-soft:#5B5A4E;
+    --sage:#C9D3C4;
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  h1,h2,h3,h4{font-family:'Fraunces', serif; font-weight:450; color:var(--ink); line-height:1.15;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--gold-light); color:var(--ink);}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+  img{max-width:100%; display:block;}
+
+  .wrap{max-width:1160px; margin:0 auto; padding:0 32px;}
+  section{position:relative;}
+
+  /* ---------- texture ---------- */
+  .paper-lines{
+    background-image: repeating-linear-gradient(to bottom, transparent, transparent 37px, var(--line) 38px);
+    background-position: 0 92px;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(247,244,236,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{
+    display:flex; align-items:center; gap:12px;
+    font-family:'Fraunces', serif; font-size:20px; color:var(--ink); letter-spacing:0.2px;
+  }
+  .brand .mark{
+    width:34px; height:34px; border-radius:50%;
+    border:1.5px solid var(--emerald);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:500;
+    color:var(--emerald);
+  }
+  .brand small{display:block; font-family:'Inter',sans-serif; font-size:11px; letter-spacing:1.5px; color:var(--charcoal-soft); font-weight:500; text-transform:uppercase; margin-top:1px;}
+  nav ul{list-style:none; display:flex; gap:30px;}
+  nav a{
+    font-size:14px; font-weight:500; color:var(--ink); position:relative; padding-bottom:4px;
+  }
+  nav a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--gold);
+    transition:width 0.25s ease;
+  }
+  nav a:hover::after, nav a.active::after{width:100%;}
+  .nav-cta{
+    background:var(--emerald); color:var(--paper); padding:10px 20px; border-radius:var(--radius);
+    font-size:13.5px; font-weight:600; letter-spacing:0.2px;
+    border:1px solid var(--emerald);
+  }
+  .nav-cta:hover{background:var(--emerald-light);}
+  .menu-btn{display:none; background:none; border:none; cursor:pointer; padding:6px;}
+  .menu-btn span{display:block; width:22px; height:2px; background:var(--ink); margin:5px 0;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:96px 0 84px; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:center;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:2px; text-transform:uppercase;
+    color:var(--gold); margin-bottom:18px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:''; width:26px; height:1px; background:var(--gold);}
+  .hero h1{font-size:52px; letter-spacing:-0.5px; margin-bottom:22px;}
+  .hero h1 em{font-style:italic; color:var(--emerald); font-weight:450;}
+  .hero p.lead{font-size:17.5px; color:var(--charcoal-soft); max-width:480px; margin-bottom:34px;}
+  .btn-row{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:52px;}
+  .btn{
+    padding:14px 26px; border-radius:var(--radius); font-size:14.5px; font-weight:600;
+    display:inline-flex; align-items:center; gap:8px; border:1px solid transparent; cursor:pointer;
+  }
+  .btn-primary{background:var(--ink); color:var(--paper);}
+  .btn-primary:hover{background:var(--emerald);}
+  .btn-ghost{border-color:var(--ink); color:var(--ink); background:transparent;}
+  .btn-ghost:hover{background:var(--ink); color:var(--paper);}
+  .stat-row{display:flex; gap:40px; border-top:1px solid var(--line); padding-top:26px;}
+  .stat-num{font-family:'IBM Plex Mono', monospace; font-size:26px; color:var(--ink); font-weight:500;}
+  .stat-label{font-size:12.5px; color:var(--charcoal-soft); margin-top:4px;}
+
+  /* seal */
+  .seal-wrap{display:flex; justify-content:center; position:relative;}
+  .seal{width:290px; height:290px; animation:seal-in 0.9s ease-out;}
+  @keyframes seal-in{from{opacity:0; transform:scale(0.85) rotate(-14deg);} to{opacity:1; transform:scale(1) rotate(-8deg);}}
+  .seal-ring-text{animation:spin 40s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* ---------- section headers ---------- */
+  .section-head{max-width:620px; margin-bottom:56px;}
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{font-size:36px; margin-bottom:14px;}
+  .section-head p{color:var(--charcoal-soft); font-size:16px;}
+  .band{padding:100px 0;}
+  .band-alt{background:var(--emerald-pale); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:64px; align-items:start;}
+  .about-portrait{
+    aspect-ratio:4/5; background:linear-gradient(160deg, var(--ink), var(--emerald)); border-radius:var(--radius);
+    position:relative; overflow:hidden; display:flex; align-items:flex-end; padding:24px;
+  }
+  .about-portrait::before{
+    content:''; position:absolute; inset:0;
+    background-image: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 45%);
+  }
+  .about-portrait .initials{
+    font-family:'Fraunces', serif; font-size:120px; color:rgba(247,244,236,0.14); position:absolute; top:10px; left:16px;
+  }
+  .about-portrait .cap{position:relative; color:var(--paper); font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:1px;}
+  .about-body p{margin-bottom:18px; color:var(--charcoal-soft); font-size:16px;}
+  .about-body p strong{color:var(--ink); font-weight:600;}
+  .credential-strip{display:flex; gap:0; margin-top:32px; border-top:1px solid var(--line);}
+  .credential-strip div{flex:1; padding:18px 0 0; border-right:1px solid var(--line);}
+  .credential-strip div:last-child{border-right:none;}
+  .credential-strip .cnum{font-family:'IBM Plex Mono', monospace; color:var(--gold); font-size:20px;}
+  .credential-strip .clabel{font-size:12.5px; color:var(--charcoal-soft); margin-top:3px;}
+
+  /* ---------- services ---------- */
+  .service-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .service-card{background:var(--paper); padding:34px 28px; transition:background 0.25s ease;}
+  .service-card:hover{background:var(--paper-deep);}
+  .service-num{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--gold); margin-bottom:20px; display:block;}
+  .service-card h3{font-size:19px; margin-bottom:10px; font-weight:600; font-family:'Inter',sans-serif; color:var(--ink);}
+  .service-card p{font-size:14.5px; color:var(--charcoal-soft);}
+
+  /* ---------- why choose ---------- */
+  .why-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; border-top:1px solid var(--line);}
+  .why-item{
+    padding:28px 32px 28px 0; border-bottom:1px solid var(--line); display:flex; gap:20px;
+  }
+  .why-item:nth-child(odd){padding-right:40px; border-right:1px solid var(--line);}
+  .why-item:nth-child(even){padding-left:40px;}
+  .why-check{
+    flex-shrink:0; width:30px; height:30px; border-radius:50%; border:1px solid var(--emerald);
+    display:flex; align-items:center; justify-content:center; color:var(--emerald); font-size:14px; margin-top:2px;
+  }
+  .why-item h4{font-size:16.5px; margin-bottom:6px; font-family:'Inter',sans-serif; font-weight:600; color:var(--ink);}
+  .why-item p{font-size:14.5px; color:var(--charcoal-soft);}
+
+  /* ---------- experience / ledger table ---------- */
+  .ledger{border-top:1px solid var(--ink);}
+  .ledger-row{
+    display:grid; grid-template-columns:110px 1fr 220px; gap:24px; padding:22px 0;
+    border-bottom:1px solid var(--line); align-items:baseline;
+  }
+  .ledger-row.head{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--charcoal-soft); padding:12px 0; border-bottom:1px solid var(--ink);
+  }
+  .ledger-year{font-family:'IBM Plex Mono', monospace; color:var(--gold); font-size:15px;}
+  .ledger-title{font-family:'Fraunces', serif; font-size:19px; color:var(--ink); margin-bottom:4px;}
+  .ledger-desc{font-size:14px; color:var(--charcoal-soft);}
+  .ledger-tag{font-size:12.5px; color:var(--charcoal-soft); text-align:right; align-self:start;}
+
+  .qual-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:56px;}
+  .qual-card{border:1px solid var(--line); padding:22px; background:var(--paper);}
+  .qual-card .qval{font-family:'IBM Plex Mono',monospace; font-size:24px; color:var(--ink);}
+  .qual-card .qlabel{font-size:12.5px; color:var(--charcoal-soft); margin-top:6px;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{border-top:1px solid var(--line); max-width:800px;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:24px 0; display:flex; justify-content:space-between; align-items:center; gap:20px;
+    font-family:'Fraunces', serif; font-size:18px; color:var(--ink);
+  }
+  .faq-q .plus{
+    font-family:'IBM Plex Mono',monospace; font-size:18px; color:var(--gold); transition:transform 0.3s ease; flex-shrink:0;
+  }
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height 0.35s ease;
+  }
+  .faq-a p{padding-bottom:24px; color:var(--charcoal-soft); font-size:15px; max-width:640px;}
+
+  
+  
+  /* ---------- footer ---------- */
+  footer{background:var(--ink); color:var(--paper); padding:56px 0 28px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px;}
+  footer h4{color:var(--paper); font-family:'Inter',sans-serif; font-size:13px; text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; font-weight:600;}
+  footer .fbrand{font-family:'Fraunces', serif; font-size:22px; margin-bottom:12px; color:var(--paper);}
+  footer p{color:#B7BFB9; font-size:14px; max-width:280px;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:10px;}
+  footer a{color:#B7BFB9; font-size:14px;}
+  footer a:hover{color:var(--gold-light);}
+  .footer-bottom{
+    border-top:1px solid rgba(247,244,236,0.15); padding-top:24px; display:flex; justify-content:space-between;
+    font-size:12.5px; color:#8B948E; flex-wrap:wrap; gap:10px;
+  }
+
+  /* ---------- reveal animation ---------- */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity 0.6s ease, transform 0.6s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:920px){
+    .hero-grid{grid-template-columns:1fr; gap:48px;}
+    .seal-wrap{order:-1;}
+    .seal{width:200px; height:200px;}
+    .about-grid, .contact-grid{grid-template-columns:1fr; gap:40px;}
+    .service-grid{grid-template-columns:1fr 1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .why-item:nth-child(odd){border-right:none; padding-right:0;}
+    .why-item:nth-child(even){padding-left:0;}
+    .qual-grid{grid-template-columns:1fr 1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .ledger-row{grid-template-columns:80px 1fr; }
+    .ledger-tag{display:none;}
+  }
+  @media (max-width:680px){
+    nav ul{display:none;}
+    .menu-btn{display:block;}
+    .nav-cta{display:none;}
+    .hero{padding:56px 0 60px;}
+    .hero h1{font-size:36px;}
+    .band{padding:64px 0;}
+    .service-grid{grid-template-columns:1fr;}
+    .stat-row{flex-wrap:wrap; gap:24px;}
+    .qual-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .wrap{padding:0 20px;}
+  }
+</style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EGSWZHL2SE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EGSWZHL2SE');
+</script>
+<body>
+
+<header>
+  <div class="wrap nav-row">
+    <a href="#home" class="brand">
+      <span class="mark">AC</span>
+      <span>Arihant Chhajed<small>Chartered Accountant</small></span>
+    </a>
+    <nav id="mainNav">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Me</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ================= HOME / HERO ================= -->
+<section id="home" class="hero paper-lines">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Practising Chartered Accountant · Since 2016</div>
+      <h1>Driven by Precision.<br>Defined by Trust.</h1>
+      <p class="lead">Trust is earned through precision, integrity, and a relentless commitment to delivering financial excellence.</p>
+      <div class="btn-row">
+        <a href="#services" class="btn btn-ghost">View Services</a>
+      </div>
+      <div class="stat-row">
+        <div>
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years in practice</div>
+        </div>
+        <div>
+          <div class="stat-num">100</div>
+          <div class="stat-label">Clients served</div>
+        </div>
+        <div>
+          <div class="stat-num">2,900+</div>
+          <div class="stat-label">Returns filed</div>
+        </div>
+        <div>
+          <div class="stat-num">0</div>
+          <div class="stat-label">Missed deadlines</div>
+        </div>
+      </div>
+    </div>
+    <div class="seal-wrap">
+        <img src="1eb5f5883a760d9c9fe0132343447f06-removebg-preview.png" width="100%" height="100%">
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="band">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">About</div>
+      <h2>The Professional Behind the Precision.</h2>
+      <p>Behind every calculation is a commitment to accuracy. Behind every recommendation is a responsibility to earn and maintain your trust.</p>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="about-portrait">
+          <!-- <div class="initials">AC</div> -->
+          <div class="cap"><img src="Arihant_-removebg-preview.png"></div>
+        </div>
+      </div>
+      <div class="about-body reveal">
+        <p><strong>I'm Arihant Chhajed</strong>, a Fellow Chartered Accountant (FCA) and a member of the Institute of Chartered Accountants of India (ICAI). Since qualifying as a Chartered Accountant in 2016, I have built extensive experience in taxation, auditing, accounting, GST compliance, and financial advisory. My professional journey includes valuable industry exposure in Mumbai and my current role at <strong>Saras Dairy</strong>, providing practical insights into both corporate finance and regulatory compliance.</p>
+        <p>In 2020, I co-founded <strong>Chhajed & Panwar, a Chartered Accountancy firm</strong> based in Pali, Rajasthan, with the vision of delivering reliable, transparent, and client-focused financial services. Today, I continue to serve individuals, professionals, startups, and businesses by combining technical expertise with a practical approach, ensuring every client receives accurate guidance, timely compliance, and personalized financial solutions.</p>
+        <div class="credential-strip">
+          <div>
+            <div class="cnum">FCA</div>
+            <div class="clabel">Fellow Member, ICAI</div>
+          </div>
+          <div>
+            <div class="cnum">DISA</div>
+            <div class="clabel">Information Systems Audit</div>
+          </div>
+          <div>
+            <div class="cnum">GST-P</div>
+            <div class="clabel">Registered GST Practitioner</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="band band-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Services</div>
+      <h2>How I Can Help.</h2>
+      <p>From taxation and GST compliance to auditing, accounting, and financial advisory, every service is delivered with precision, transparency, and a commitment to your financial success.</p>
+    </div>
+    <div class="service-grid reveal">
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <h3>Income Tax Filing</h3>
+        <p>ITR preparation and filing for salaried individuals, freelancers, NRIs and businesses, with tax-saving review before submission.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <h3>GST Registration & Returns</h3>
+        <p>End-to-end GST registration, monthly/quarterly return filing, reconciliation and notice handling.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">03</span>
+        <h3>Statutory & Tax Audits</h3>
+        <p>Audits for companies, LLPs and firms under the Companies Act and Income Tax Act, delivered without last-minute scrambling.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">04</span>
+        <h3>Business Registration</h3>
+        <p>Company, LLP, partnership and proprietorship setup, including PAN, TAN, MSME and licence registrations.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">05</span>
+        <h3>Bookkeeping & Accounting</h3>
+        <p>Monthly books maintenance, bank reconciliation and MIS reports so you always know where your business stands.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">06</span>
+        <h3>Financial & Tax Advisory</h3>
+        <p>Structuring advice for investments, succession and business decisions with tax consequences in mind, not as an afterthought.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE ME ================= -->
+<section id="why" class="band">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Why Choose Me</div>
+      <h2>What Sets My Practice Apart</h2>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-item">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>You talk to me, not a call centre</h4>
+          <p>Every client works directly with me. If you have a question about your filing, you're not routed through three people to get an answer.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Fixed, upfront pricing</h4>
+          <p>You get a quote before any work starts. No hourly surprises, no "additional charges" buried in the final invoice.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Deadlines, tracked properly</h4>
+          <p>Every client's due dates are logged and followed up on well ahead of time — not remembered the week they're due.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Plain-language explanations</h4>
+          <p>I'll tell you what a form means and why it matters to you, not just where to sign. You should understand your own finances.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>A capped client list</h4>
+          <p>I intentionally limit how many clients I take on each year, so quality of review doesn't drop as the practice grows.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Available beyond tax season</h4>
+          <p>Questions don't only come up in July. I respond to existing clients year-round, not just during filing deadlines.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE & QUALIFICATIONS ================= -->
+<section id="experience" class="band band-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Experience &amp; Qualifications</div>
+      <h2>Expertise That Matters</h2>
+      <p>Every qualification and professional milestone reflects a commitment to accuracy, ethics, and continuous growth.</p>
+    </div>
+
+    <div class="ledger reveal">
+      <div class="ledger-row head">
+        <div>Year</div>
+        <div>Entry</div>
+        <div style="text-align:right;">Type</div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-year">2016</div>
+        <div>
+          <div class="ledger-title">Qualified as a Chartered Accountant (FCA) and became a Member of ICAI</div>
+          <div class="ledger-desc"></div>
+        </div>
+        <div class="ledger-tag">Qualification</div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-year">2016</div>
+        <div>
+          <div class="ledger-title">Began professional career in Mumbai, gaining experience in taxation, auditing, and financial advisory</div>
+          <div class="ledger-desc"></div>
+        </div>
+        <div class="ledger-tag">Professional Experience</div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-year">20018</div>
+        <div>
+          <div class="ledger-title">Joined Saras Dairy, contributing expertise in finance, accounting, and regulatory compliance</div>
+          <div class="ledger-desc"></div>
+        </div>
+        <div class="ledger-tag">Corporate Experience</div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-year">2018 - Present</div>
+        <div>
+          <div class="ledger-title">Providing independent Chartered Accountancy services to individuals, professionals, and businesses</div>
+          
+        </div>
+        <div class="ledger-tag">Professional Practice</div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-year">2020</div>
+        <div>
+          <div class="ledger-title">Co-founded Chhajed & Panwar, Chartered Accountants, Pali, Rajasthan</div>
+          <!-- <div class="ledger-desc">Qualified as a Chartered Accountant, ranked in the top 5% of the batch nationally.</div> -->
+        </div>
+        <div class="ledger-tag">Firm Establishment</div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-year">2020 - Present</div>
+        <div>
+          <div class="ledger-title">Managing taxation, GST, auditing, accounting, business registration, and financial advisory services</div>
+          <!-- <div class="ledger-desc">Three-year articled training across audit, taxation and company law compliance functions.</div> -->
+        </div>
+        <div class="ledger-tag">Professional Practice</div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-year">Present</div>
+        <div>
+          <div class="ledger-title">Continuing to serve clients while balancing corporate responsibilities and independent practice</div>
+          <!-- <div class="ledger-desc">Three-year articled training across audit, taxation and company law compliance functions.</div> -->
+        </div>
+        <div class="ledger-tag">Ongoing Professional Commitment</div>
+      </div>
+    </div>
+
+    <div class="qual-grid reveal">
+      <div class="qual-card">
+        <div class="qval">10 yrs</div>
+        <div class="qlabel">Independent practice</div>
+      </div>
+      <div class="qual-card">
+        <div class="qval">B.Com, FCA</div>
+        <div class="qlabel">Core qualification</div>
+      </div>
+      <div class="qual-card">
+        <div class="qval">DISA</div>
+        <div class="qlabel">Systems audit</div>
+      </div>
+      <div class="qual-card">
+        <div class="qval">GSTP</div>
+        <div class="qlabel">GST practitioner</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" class="band">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">FAQ</div>
+      <h2>Everything You Need to Know.</h2>
+    </div>
+    <div class="faq-list reveal" id="faqList">
+      <div class="faq-item open">
+        <button class="faq-q">What documents do I need for my first meeting?<span class="plus">+</span></button>
+        <div class="faq-a"><p>For individuals: PAN, Aadhaar, Form 16 (if salaried), bank statements, and details of any investments or other income. For businesses: registration documents, last year's financials, and GST filings if applicable. I'll send a checklist tailored to your situation before we meet.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you work with clients outside Pali?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes. Most ongoing work — filings, bookkeeping, advisory — is handled over call and email, so location isn't usually a constraint. In-person meetings can be arranged for clients based locally or visiting the city.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How is your fee structured?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Most services are quoted as a fixed fee based on the complexity of the work, agreed before anything starts. Ongoing engagements like monthly bookkeeping are billed on a monthly retainer. You'll never receive a bill you weren't expecting.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can you help if I've already missed a filing deadline?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes — belated returns, notices and penalty situations can usually still be resolved. The sooner you reach out, the more options are typically available, so it's worth getting in touch even if you think it's too late.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you take on new clients year-round, or only before tax season?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Year-round, though availability for new clients does get tighter close to filing deadlines. If you know you'll need help for the next season, it's worth starting the conversation early.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div id="contact" class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="fbrand">Arihant Chhajed, FCA</div>
+        <p>Trust is earned through precision, integrity, and a relentless commitment to delivering financial excellence.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Tax Filing</a></li>
+          <li><a href="#services">GST Returns</a></li>
+          <li><a href="#services">Audits</a></li>
+          <li><a href="#services">Advisory</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919462444523">+91 94624 44523</a></li>
+          <li><a href="mailto:rohan.desai@rdca.in">carihant@gmail.com</a></li>
+          <li><a>29, Mahaveer Udhyog Nagar Road, Pali 306401, Rajasthan, India</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2016 CA Arihant Chhajer. Driven by Precision. Defined by Trust. All rights reserved.</span>
+      <!-- <span>Site content is a template — replace with your details before publishing.</span> -->
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mainNav = document.getElementById('mainNav');
+  menuBtn.addEventListener('click', () => {
+    const open = mainNav.style.display === 'block';
+    mainNav.style.display = open ? 'none' : 'block';
+    if(!open){
+      mainNav.querySelector('ul').style.cssText = 'display:flex;flex-direction:column;gap:0;position:absolute;top:64px;left:0;right:0;background:#F7F4EC;padding:8px 32px 20px;border-bottom:1px solid #DCD5C0;';
+      mainNav.querySelectorAll('a').forEach(a=>a.style.cssText='display:block;padding:12px 0;border-bottom:1px solid #DCD5C0;');
+    }
+  });
+  mainNav.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=>{ if(window.innerWidth<=680){ mainNav.style.display='none'; } });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    if(item.classList.contains('open')){ a.style.maxHeight = a.scrollHeight + 'px'; }
+    q.addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(other=>{
+        other.classList.remove('open');
+        other.querySelector('.faq-a').style.maxHeight = 0;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+
+  // active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  const navObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        navLinks.forEach(l=>l.classList.remove('active'));
+        const link = document.querySelector('nav a[href="#'+entry.target.id+'"]');
+        if(link) link.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-45% 0px -45% 0px'});
+  sections.forEach(s=>navObserver.observe(s));
+</script>
+</body>
+</html>
