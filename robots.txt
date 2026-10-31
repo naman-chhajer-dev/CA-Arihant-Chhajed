@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://caarihantchhajed.netlify.app/sitemap.xml
